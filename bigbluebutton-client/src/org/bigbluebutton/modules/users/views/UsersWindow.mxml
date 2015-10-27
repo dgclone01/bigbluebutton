@@ -34,7 +34,7 @@
 	<mate:Listener type="{ShortcutEvent.FOCUS_USERS_WINDOW}" method="focusWindow" />
 	<mate:Listener type="{ShortcutEvent.MUTE_ALL_BUT_PRES}" method="remoteMuteAllButPres" />
 	<mate:Listener type="{MeetingMutedEvent.MEETING_MUTED}" method="handleMeetingMuted" />
-	<mate:Listener type="{LockControlEvent.CHANGED_LOCK_SETTINGS}" method="handleChangedLockSettingsEvent" />
+	
 	<mx:Script>
 		<![CDATA[
 			import com.asfusion.mate.events.Dispatcher;
@@ -164,10 +164,10 @@
 			}
 			
 			private function updateNumberofUsers(numUsers:int):void {
-				if (numUsers > 8)
+				if (numUsers > 0)
 					this.title = ResourceUtil.getInstance().getString('bbb.users.title', [":", numUsers]);
-				else 
-					this.title = ResourceUtil.getInstance().getString('bbb.users.title', ["", ""]);
+				//else 
+					//this.title = ResourceUtil.getInstance().getString('bbb.users.title', ["", ""]);
 			}
 			
 			private function localeChanged(e:Event):void {
@@ -241,7 +241,7 @@
 				} else
 					paramsMenuData.push({label: ResourceUtil.getInstance().getString('bbb.users.settings.unmuteAll'), icon: images.audio, handler:muteAll});
 								
-				paramsMenuData.push({label: ResourceUtil.getInstance().getString('bbb.users.settings.lockSettings'), icon: images.lock_open, handler: lockSettings});
+				//paramsMenuData.push({label: ResourceUtil.getInstance().getString('bbb.users.settings.lockSettings'), icon: images.lock_open, handler: lockSettings});
 				
 				
 				// make sure the previous menu is closed before opening a new one
@@ -361,10 +361,10 @@
 			
 			override protected function resourcesChanged():void{
 				super.resourcesChanged();				
-				if (users.length > 8)
+				if (users.length > 0)
 					this.title = ResourceUtil.getInstance().getString('bbb.users.title', [":", users.length]);
-				else 
-					this.title = ResourceUtil.getInstance().getString('bbb.users.title', ["", ""]);
+				//else 
+					//this.title = ResourceUtil.getInstance().getString('bbb.users.title', ["", ""]);
 				
 				if (titleBarOverlay != null) {
 					titleBarOverlay.accessibilityName = ResourceUtil.getInstance().getString('bbb.users.titleBar');
