@@ -32,6 +32,12 @@ package org.bigbluebutton.core.model
 			help.url = config.help.@url;
 			return help;
 		}
+		
+		public function get rate():Object {
+			var rate:Object = new Object();
+			rate.url = config.rate.@url;
+			return rate;
+		}
     
     public function get javaTest():Object {
       var javaTest:Object = new Object();
