@@ -60,6 +60,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 			import org.bigbluebutton.main.events.LogoutEvent;
 			import org.bigbluebutton.main.events.SettingsEvent;
 			import org.bigbluebutton.main.events.ShortcutEvent;
+			import org.bigbluebutton.main.events.RateEvent;
 			import org.bigbluebutton.main.model.LayoutOptions;
 			import org.bigbluebutton.main.model.users.events.ConferenceCreatedEvent;
 			import org.bigbluebutton.main.model.users.events.ConnectionFailedEvent;
@@ -353,6 +354,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 				d.dispatchEvent(new ShortcutEvent(ShortcutEvent.OPEN_SHORTCUT_WIN));
 			}
 			
+			
 			private function focusShortcutButton(e:ShortcutEvent):void{
 				shortcutKeysBtn.setFocus();
 			}
@@ -407,7 +409,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 <!--
   <mx:Button label="DISCONNECT!" click="BBB.initConnectionManager().forceClose()" height="22" toolTip="Click to simulate disconnection" />
 -->
-	<mx:Button id="rateBtn" label="Rate" styleName="shortcutButtonStyle"click="onRateButtonClick()" height="22" />
+
+	<mx:Button id="rateBtn" label="{ResourceUtil.getInstance().getString('bbb.mainToolbar.rateBtn')}" styleName="shortcutButtonStyle" click="onRateButtonClick()" height="22" />
 	<mx:Button id="shortcutKeysBtn" label="{ResourceUtil.getInstance().getString('bbb.mainToolbar.shortcutBtn')}" styleName="shortcutButtonStyle"
              click="onShortcutButtonClick()" height="22" 
              toolTip="{ResourceUtil.getInstance().getString('bbb.mainToolbar.shortcutBtn.toolTip')}"/>
